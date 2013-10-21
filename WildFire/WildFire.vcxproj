@@ -74,6 +74,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graph_io.c" />
+    <ClCompile Include="module_util.c" />
+    <ClCompile Include="test_graph_io.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="graph_io.h" />
+    <ClInclude Include="module_feu.h" />
+    <ClInclude Include="module_terrain.h" />
+    <ClInclude Include="module_util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
