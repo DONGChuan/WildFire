@@ -17,6 +17,11 @@
 
 #include "module_util.h"
 
+#include <stdio.h>
+#include <math.h>
+#include <time.h> 
+#include <stdlib.h> 
+
 /****************************************************************************************
 							DÉCLARATIONS DE FONCTIONS
 ****************************************************************************************/
@@ -34,8 +39,15 @@
 
 	VALEUR DE RETOUR : Le plafond de la valeur reçue (type : long int).
 */
-long int plafond(double x);
-
+long int plafond(double x)
+{	
+	/* 
+		Round() n'exist pas dans math.h pour Windows donc on utilise ici
+		floor() qui retourne le plus grand valeur entière supérieure ou égale au nombre
+		inférieur ou égale au nombre
+	*/
+	return (long int)floor(x + 0.5);
+}
 
 
 /*
@@ -51,7 +63,10 @@ long int plafond(double x);
 	
 	VALEUR DE RETOUR : Un nombre dans l'intervalle [min, max] (type : int).
 */
-int nb_aleatoire(int min, int max);
+int nb_aleatoire(int min, int max)
+{
+	return min + (int)(rand() / (RAND_MAX + 0.0000001) * (max - min + 1));
+}
 
 
 
@@ -65,7 +80,10 @@ int nb_aleatoire(int min, int max);
 	
 	VALEUR DE RETOUR : Un nombre dans l'intervalle [0, 1] (type : double).
 */
-double nb_aleatoire_0_1(void);
+double nb_aleatoire_0_1(void)
+{
+	return rand() / (double)(RAND_MAX);
+}
 
 
 
@@ -83,7 +101,11 @@ double nb_aleatoire_0_1(void);
 	VALEUR DE RETOUR : 1 si x se trouve dans l'intervalle [x1, x2] et 0 lorsque ce 
 					   n'est pas le cas (type : int).
 */
-int est_dans_intervalle(int x, int x1, int x2);
+int est_dans_intervalle(int x, int x1, int x2)
+{
+	if(x1 <= x && x <= x2) return 1;
+	else return 0;
+}
 
 
 
@@ -97,7 +119,11 @@ int est_dans_intervalle(int x, int x1, int x2);
 
 	VALEUR DE RETOUR : La valeur absolue de x (type : double).
 */
-double valeur_absolue(double x);
+double valeur_absolue(double x)
+{
+	/* In C, abs() serve seulement pour int */
+	return fabs(x);
+}
 
 
 
@@ -112,7 +138,10 @@ double valeur_absolue(double x);
 
 	VALEUR DE RETOUR : Le maximum entre nb1 et nb2 (type : double).
 */
-double maximum(double nb1, double nb2);
+double maximum(double nb1, double nb2)
+{
+	return nb1>nb2 ? nb1 : nb2;
+}
 
 
 
@@ -139,7 +168,23 @@ double maximum(double nb1, double nb2);
 					          "Vous devez entrer un nombre entier dans l'intervalle ");
 */
 int entier_valide(int min, int max, const char * message_invitation, 
-				  const char * message_erreur);
+				  const char * message_erreur)
+{
+	int nb_lu;
+
+	printf(message_invitation);
+	scanf_s("%i", &nb_lu);
+
+	while(min >= nb_lu || nb_lu >= max)
+	{
+		printf(message_erreur);
+
+		printf(message_invitation);
+		scanf_s("%i", &nb_lu);
+	}
+
+	return nb_lu;
+}
 
 
 
@@ -166,4 +211,20 @@ int entier_valide(int min, int max, const char * message_invitation,
 					        "Vous devez entrer un nombre réel dans l'intervalle ");
 */
 double reel_valide(double min, double max, const char * message_invitation, 
-				   const char * message_erreur);
+				   const char * message_erreur)
+{
+	double nb_lu;
+
+	printf(message_invitation);
+	scanf_s("%lf", &nb_lu);
+
+	while(min >= nb_lu || nb_lu >= max);
+	{
+		printf(message_erreur);
+
+		printf(message_invitation);
+		scanf_s("%lf", &nb_lu);
+	}
+
+	return nb_lu;
+}
