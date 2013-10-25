@@ -32,8 +32,5 @@
     <ClCompile Include="module_util.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="main.c">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

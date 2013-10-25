@@ -80,7 +80,6 @@
     <ClInclude Include="module_util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
     <ClCompile Include="module_util.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
