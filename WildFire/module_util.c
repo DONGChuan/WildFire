@@ -14,7 +14,7 @@
 	- reel_valide         : Saisit un réel jusqu'à ce que celui-ci se trouve dans un
 							intervalle donné.
 ****************************************************************************************/
-
+/* test */
 #include "module_util.h"
 
 #include <stdio.h>
