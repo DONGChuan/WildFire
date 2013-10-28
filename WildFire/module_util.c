@@ -49,7 +49,6 @@ long int plafond(double x)
 	return (long int)floor(x + 0.5);
 }
 
-
 /*
 	NB_ALEATOIRE
 
@@ -68,8 +67,6 @@ int nb_aleatoire(int min, int max)
 	return min + (int)(rand() / (RAND_MAX + 0.0000001) * (max - min + 1));
 }
 
-
-
 /*
 	NB_ALEATOIRE_0_1
 
@@ -84,8 +81,6 @@ double nb_aleatoire_0_1(void)
 {
 	return rand() / (double)(RAND_MAX);
 }
-
-
 
 /*
 	EST_DANS_INTERVALLE
@@ -107,8 +102,6 @@ int est_dans_intervalle(int x, int x1, int x2)
 	else return 0;
 }
 
-
-
 /*
 	VALEUR_ABSOLUE
 
@@ -125,8 +118,6 @@ double valeur_absolue(double x)
 	return fabs(x);
 }
 
-
-
 /*
 	MAXIMUM
 
@@ -142,8 +133,6 @@ double maximum(double nb1, double nb2)
 {
 	return nb1>nb2 ? nb1 : nb2;
 }
-
-
 
 /*
 	ENTIER_VALIDE
@@ -218,7 +207,7 @@ double reel_valide(double min, double max, const char * message_invitation,
 	printf(message_invitation);
 	scanf_s("%lf", &nb_lu);
 
-	while(min >= nb_lu || nb_lu >= max);
+	while(min >= nb_lu || nb_lu >= max)
 	{
 		printf(message_erreur);
 
@@ -228,3 +217,53 @@ double reel_valide(double min, double max, const char * message_invitation,
 
 	return nb_lu;
 }
+
+//plafond, est_dans_intervalle, valeur_absolue maximum
+
+void test_plafond()
+{
+	printf("TEST : PLAFOND\n\n");
+
+	printf("      Test #1 : -1.3 \n");
+	printf("      Valeur attendue : -1\n");
+	printf("      Valeur obtenue  : %i\n\n", plafond(-1.3));
+
+	printf("      Test #2 : 2 \n");
+	printf("      Valeur attendue : 2\n");
+	printf("      Valeur obtenue  : %i\n\n", plafond(2));
+
+	printf("      Test #3 : 2.4 \n");
+	printf("      Valeur attendue : 3\n");
+	printf("      Valeur obtenue  : %i\n\n", plafond(2.4));
+
+	printf("      Test #4 : 2.97 \n");
+	printf("      Valeur attendue : 3\n");
+	printf("      Valeur obtenue  : %i\n\n", plafond(2.97));
+}
+
+void est_dans_intervalle()
+{
+	printf("TEST : EST_DANS_INTERVALLE\n\n");
+
+	printf("      Test #1 : 0 [-5, 5] \n");
+	printf("      Valeur attendue : 1\n");
+	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, -5, 5));
+
+	printf("      Test #2 : 0 [0, 5] \n");
+	printf("      Valeur attendue : 1\n");
+	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, 0, 5));
+
+	printf("      Test #3 : 0 [-5, 0] \n");
+	printf("      Valeur attendue : 1\n");
+	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, -5, 0));
+
+	printf("      Test #4 : 0 [2, 5] \n");
+	printf("      Valeur attendue : 0\n");
+	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, 2, 5));
+
+	printf("      Test #5 : 0 [5, -5] \n");
+	printf("      Valeur attendue : 0\n");
+	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, 5, -5));
+}
+
+
