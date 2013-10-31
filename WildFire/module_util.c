@@ -14,7 +14,7 @@
 	- reel_valide         : Saisit un réel jusqu'à ce que celui-ci se trouve dans un
 							intervalle donné.
 ****************************************************************************************/
-/* test */
+
 #include "module_util.h"
 
 #include <stdio.h>
@@ -241,7 +241,7 @@ void test_plafond()
 	printf("      Valeur obtenue  : %i\n\n", plafond(2.97));
 }
 
-void est_dans_intervalle()
+void test_est_dans_intervalle()
 {
 	printf("TEST : EST_DANS_INTERVALLE\n\n");
 
@@ -266,4 +266,36 @@ void est_dans_intervalle()
 	printf("      Valeur obtenue  : %i\n\n", est_dans_intervalle(0, 5, -5));
 }
 
+void test_valeur_absolue(void)
+{
+	printf("TEST : VALEUR_ABSOLUE\n\n");
 
+	printf("      Test #1 : -1.3 \n");
+	printf("      Valeur attendue : 1.3\n");
+	printf("      Valeur obtenue  : %f\n\n", valeur_absolue(-1.3));
+
+	printf("      Test #2 : 0 \n");
+	printf("      Valeur attendue : 1\n");
+	printf("      Valeur obtenue  : %f\n\n", valeur_absolue(0));
+
+	printf("      Test #3 : 2 \n");
+	printf("      Valeur attendue : 2\n");
+	printf("      Valeur obtenue  : %f\n\n", valeur_absolue(2));
+}
+
+void test_maximum(void)
+{
+	printf("TEST : MAXIMUM\n\n");
+
+	printf("      Test #1 : (-5, 5)  \n");
+	printf("      Valeur attendue : 5\n");
+	printf("      Valeur obtenue  : %f\n\n", maximum(-5,5));
+
+	printf("      Test #2 : (5, -5) \n");
+	printf("      Valeur attendue : 5\n");
+	printf("      Valeur obtenue  : %f\n\n", maximum(5,-5));
+
+	printf("      Test #3 : (5,  5) \n");
+	printf("      Valeur attendue : 5\n");
+	printf("      Valeur obtenue  : %f\n\n", maximum(5,5));
+}
