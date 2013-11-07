@@ -11,18 +11,12 @@
 	          le jeu de caractères MBCS (Projet->Propriétés de ...->Général).
 ******************************************************************************/
 
-
-
-
 #include "graph_io.h"
 #include "winbgim.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-
-
-
 
 /******************************************************************************
 							DÉFINITIONS DE CONSTANTES

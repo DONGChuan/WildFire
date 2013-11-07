@@ -78,9 +78,16 @@
     <ClInclude Include="module_feu.h" />
     <ClInclude Include="module_terrain.h" />
     <ClInclude Include="module_util.h" />
+    <ClInclude Include="WINBGIM.H" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="graph_io.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="module_feu.c" />
+    <ClCompile Include="module_terrain.c" />
     <ClCompile Include="module_util.c" />
+    <ClCompile Include="test_graph_io.c" />
+    <ClCompile Include="WINBGIM.CPP" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
